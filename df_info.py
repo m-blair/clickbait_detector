@@ -1,3 +1,4 @@
+# auxiliary methods for manipulating dataframe content
 import collections
 
 import pandas as pd
@@ -34,6 +35,7 @@ def remove_stopwords(line):
     return ' '.join(result)
 
 
+# pre-processor
 def clean_data(df: pd.DataFrame, remove_sw=True):
     lowercase = df.headline.apply(lambda x: str(x).lower())
     # expand contractions
@@ -47,6 +49,7 @@ def clean_data(df: pd.DataFrame, remove_sw=True):
     if remove_sw:
         cleaned = cleaned.apply(lambda x: remove_stopwords(x))
     return cleaned
+
 
 
 def counter_to_df(counter: collections.Counter, n: int = 10):
