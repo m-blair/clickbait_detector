@@ -24,15 +24,6 @@ def split_data(df: pd.DataFrame, col_title=''):
     return df1, df2
 
 
-# def bow(df: pd.DataFrame):
-#     agg_counter = Counter()
-#     for headline in df.headline:
-#         tokens = word_tokenize(headline)
-#         counter = Counter(tokens)
-#         agg_counter += counter
-#     return agg_counter
-
-
 def remove_stopwords(line):
     tokenwords = nltk.word_tokenize(line)
     result = [word for word in tokenwords if word not in stop_words]
@@ -58,22 +49,6 @@ def clean_data(df: pd.DataFrame, remove_sw=True):
     return cleaned
 
 
-def frequency_histogram(df: pd.DataFrame, title='Most Common Words'):
-    # get labels for columns
-    cmap = cm.get_cmap('cool_r')
-    cols = list(df.columns)
-    num_cols = len(df)
-    dff = pd.DataFrame(df, columns=[cols[1], cols[2]])
-    dff.plot(kind='barh', x=cols[1],
-             y=cols[2],
-             xlabel=cols[1],
-             ylabel=cols[2],
-             title=title,
-             legend=False,
-             grid=False,
-             cmap=cmap)
-
-
 def counter_to_df(counter: collections.Counter, n: int = 10):
     df = pd.DataFrame.from_dict(counter, orient='index').reset_index(inplace=False)
     df = df.sort_values(by=[0], ascending=False)[:n]
@@ -81,13 +56,5 @@ def counter_to_df(counter: collections.Counter, n: int = 10):
     df = df.reset_index(inplace=False)
     return df
 
-# def most_liked(df: pd.DataFrame):
-#     """
-#     Returns a dataframe of the most liked tweet \n
-#     :param df: a dataframe containing numerical data column as second column
-#     :return: a single row of a dataframe
-#     """
-#
-#     return df.sort_values(by=[1], ascending=False)[0:10]
 
 #%%
