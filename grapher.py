@@ -1,3 +1,4 @@
+# auxiliary methods for graphing/plotting results
 import matplotlib.pyplot as plt
 from matplotlib import cm
 import pandas as pd
@@ -6,6 +7,7 @@ plt.style.use('ggplot')
 
 
 def plot_history(history):
+    # returns graph of model accuracy and loss, and validation accuracy and loss over epoch
     acc = history.history['accuracy']
     val_acc = history.history['val_accuracy']
     loss = history.history['loss']
@@ -27,7 +29,6 @@ def plot_history(history):
 
 
 def frequency_histogram(df: pd.DataFrame, title='Most Common Words'):
-    # get labels for columns
     cmap = cm.get_cmap('cool_r')
     cols = list(df.columns)
     num_cols = len(df)
