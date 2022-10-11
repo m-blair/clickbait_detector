@@ -10,7 +10,21 @@ The datasets used in training the model were obtained via Kaggle:
 <br>
 # Making predictions
 The user is asked to input a string (title of an article), and the model returns a value in the range (0,1), 
-0 being NOT-CLICKBAIT, and 1 being CLICKBAIT. Any value >= 0.5 is interpreted as CLICKBAIT, 
-where lower or higher values display the "level of certainty" of the model in it's prediction.
+where 0 denotes the class NOT-CLICKBAIT, and 1 denotes CLICKBAIT. Any value >= 0.5 is interpreted as CLICKBAIT, 
+where lower or higher values can be interpretted as the model's "level of certainty" in it's prediction. 
+<br>
+***
+**EXAMPLE INPUT**
+```
+15 shocking life hacks that will leave you speechless
+```
+<br>
+
+**EXAMPLE OUTPUT**
+```
+"15 shocking life hacks that will leave you speechless": CLICKBAIT!
+
+[0.99999994]
+```
 
 
