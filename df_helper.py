@@ -8,7 +8,6 @@ from nltk.corpus import stopwords
 from collections import Counter
 import contractions
 import re
-from matplotlib import cm
 
 stop_words = set(stopwords.words('english'))
 
@@ -25,39 +24,9 @@ def split_data(df: pd.DataFrame, col_title=''):
     return df1, df2
 
 
-def remove_stopwords(line):
-    tokenwords = nltk.word_tokenize(line)
-    result = [word for word in tokenwords if word not in stop_words]
-    result = []
-    for word in tokenwords:
-        if word not in stop_words:
-            result.append(word)
-    return ' '.join(result)
-
-
-# pre-processor
-def clean_data(df: pd.DataFrame, remove_sw=True):
-    lowercase = df.headline.apply(lambda x: str(x).lower())
-    # expand contractions
-    expanded = lowercase.apply(lambda x: contractions.fix(x, slang=False))
-    # remove punct (keep periods and hyphens)
-    no_punct = expanded.apply(lambda x: re.sub(r"[^a-zA-Z0-9\-\.]", " ", x))
-    # remove single characters
-    fixed = no_punct.apply(lambda x: ' '.join([w for w in x.split() if len(w) > 1]))
-    # clean up any excess spacing left over from previous steps
-    cleaned = fixed.apply(lambda x: re.sub(' +', ' ', x))
-    if remove_sw:
-        cleaned = cleaned.apply(lambda x: remove_stopwords(x))
-    return cleaned
-
-
-
 def counter_to_df(counter: collections.Counter, n: int = 10):
     df = pd.DataFrame.from_dict(counter, orient='index').reset_index(inplace=False)
     df = df.sort_values(by=[0], ascending=False)[:n]
     df = df.rename(columns={'level_0': 'old index'})
     df = df.reset_index(inplace=False)
     return df
-
-
-#%%
