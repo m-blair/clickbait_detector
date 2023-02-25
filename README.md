@@ -15,7 +15,7 @@ where lower or higher values can be interpretted as the model's "level of certai
 <br>
 ***
 
-**EXAMPLE OUTPUTS**
+**RESULT EXAMPLES**
 ```
 "15 shocking life hacks that will leave you speechless": CLICKBAIT!
 
