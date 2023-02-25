@@ -14,11 +14,6 @@ where 0 denotes the class NOT-CLICKBAIT, and 1 denotes CLICKBAIT. Any value >= 0
 where lower or higher values can be interpretted as the model's "level of certainty" in it's prediction. 
 <br>
 ***
-**EXAMPLE INPUT**
-```
-15 shocking life hacks that will leave you speechless
-```
-<br>
 
 **EXAMPLE OUTPUTS**
 ```
