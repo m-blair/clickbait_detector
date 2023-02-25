@@ -27,9 +27,14 @@ where lower or higher values can be interpretted as the model's "level of certai
 [0.99999994]
 ```
 ```
-"Joe Biden wins 2020 US Presidential election": Not clickbait.
+"how to earn $5000 a month doing absolutely nothing": CLICKBAIT!
 
-[0.00055635]
+[0.9785793]
+```
+```
+"President Biden visits Kiev amidst Ohio train derailment outrage": Not clickbait.
+
+[8.869257e-06]
 ```
 
 
