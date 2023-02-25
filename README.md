@@ -20,11 +20,16 @@ where lower or higher values can be interpretted as the model's "level of certai
 ```
 <br>
 
-**EXAMPLE OUTPUT**
+**EXAMPLE OUTPUTS**
 ```
 "15 shocking life hacks that will leave you speechless": CLICKBAIT!
 
 [0.99999994]
+```
+```
+"Joe Biden wins 2020 US Presidential election": Not clickbait.
+
+[0.00055635]
 ```
 
 
